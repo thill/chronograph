@@ -1,0 +1,18 @@
+[package]
+name = "chronograph"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Eric Thill"]
+repository = "https://github.com/thill/chronograph"
+description = "Timestamp Tracers"
+keywords = ["time", "tracer"]
+categories = ["concurrency", "rust-patterns"]
+exclude = ["Cargo.lock"]
+
+[dependencies]
+memmap = "0.7.0"
+rkyv = "0.8.10"
+scc = "2.3.4"
+zwohash = "0.1.2"
+chronograph-macros = { path = "../chronograph-macros", version = "0.1.0" }
