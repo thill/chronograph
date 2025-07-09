@@ -51,11 +51,11 @@ impl BatchingSpanRecorder {
 
 /// A trait for collecting spans after they have been batched
 pub trait BatchCollector {
-    fn collect(&self, batch: SpanBatch);
+    fn collect(&mut self, batch: SpanBatch);
 }
 
-impl<F: Fn(SpanBatch)> BatchCollector for F {
-    fn collect(&self, spans: SpanBatch) {
+impl<F: FnMut(SpanBatch)> BatchCollector for F {
+    fn collect(&mut self, spans: SpanBatch) {
         self(spans)
     }
 }
